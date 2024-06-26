@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="public/assets/groups.png" type="image/x-icon">
+        <title>App Socket - Chat</title>
+
+        <!-- Diseño -->
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+        <!-- Lógica -->
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="index.js"></script>
+
+        <script>
+        // Función para emitir un sonido al momento que se llame a un nuevo turno
+        function alerta() {
+            const audio = new Audio('audio/public_audio_new-ticket.mp3');
+            audio.addEventListener = audio.play()
+        }
+    </script>
+    </head>
+
+    <body>
+        <div class="container ">
+            <div class="pantalla profile">
+                <h3>NUEVO TURNO</h3>
+                <h1 id="turno_actual"></h1>
+
+                <span class="material-symbols-outlined">
+                    alarm_on
+                </span>
+
+                <h2>Puesto 1</h2>
+            </div>
+
+            <div class="cola profile">
+                <section>
+                    <h1>Próximos turnos</h1>
+                    <div id="messages" class="info"></div>
+
+                    <input onclick="alerta()" type="submit" value="llamar"
+                        class="boton" id="llamar">
+                </section>
+            </div>
+            <div class="cola profile" id="formulario">
+                <section>
+                    <h1>Solicitar un nuevo turno</h1>
+                    <form onsubmit="return addMessage (this)"
+                        class="formulario">
+                        <input class="info" type="text" id="name"
+                            placeholder="Tu nombre:...">
+                        <input class="info" type="text" id="lastname"
+                            placeholder="Tu apellido:...">
+
+                        <input type="submit" value="solicitar" class="boton">
+                    </form>
+                </section>
+            </div>
+        </div>
+    </body>
+
+</html>
